@@ -54,7 +54,7 @@ async fn main() -> anyhow::Result<()> {
                     }
 
                     let url = format!(
-                        "https://a11.gdl.netease.com/MuMuNG-setup-V{}-{}{}.exe",
+                        "https://a11.gdl.netease.com/MuMu-setup-V{}-{}{}.exe",
                         x, y, z
                     );
 
@@ -74,9 +74,9 @@ async fn main() -> anyhow::Result<()> {
         Ok(Some(url)) => {
             handles.abort();
 
+            println!("✅ Valid URL found: {}", url);
             match download_dir {
                 Some(dir) => {
-                    println!("✅ Valid URL found: {}", url);
                     println!("Do you want to download? [y/n]");
 
                     let mut input = String::new();
@@ -90,9 +90,7 @@ async fn main() -> anyhow::Result<()> {
                         println!("Exiting without download.");
                     }
                 }
-                None => {
-                    println!("{}", url);
-                }
+                None => {}
             }
             Ok(())
         }
