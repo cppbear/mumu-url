@@ -70,7 +70,7 @@ async fn main() -> anyhow::Result<()> {
     });
 
     // 6. 处理检测结果
-    match tokio::time::timeout(Duration::from_secs(30), receiver.recv()).await {
+    match tokio::time::timeout(Duration::from_secs(60), receiver.recv()).await {
         Ok(Some(url)) => {
             handles.abort();
 
